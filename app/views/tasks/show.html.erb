@@ -1,0 +1,36 @@
+<% provide(:title, current_user.name) %>
+<div class="container">
+  <h1>タスク詳細</h1>
+  
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table class="table table-bordered" id="table-task">
+        <tbody>
+          <tr>
+            <th class="active col-md-3"><%= Task.human_attribute_name :id %></th>
+            <td class="col-md-9"><%= @task.id %></td>
+          </tr>
+          <tr>
+            <th class="active"><%= Task.human_attribute_name :task_name %></th>
+            <td><%= @task.task_name %></td>
+          </tr>
+          <tr>
+            <th class="active"><%= Task.human_attribute_name :task_detail %></th>
+            <td><%= @task.task_detail %></td>
+          </tr>
+          <tr>
+            <th class="active"><%= Task.human_attribute_name :created_at %></th>
+            <td><%= @task.created_at %></td>
+          </tr>
+          <tr>
+            <th class="active"><%= Task.human_attribute_name :updated_at %></th>
+            <td><%= @task.updated_at %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to "編集", edit_user_task_path(@user, @task), class:"btn btn-success" %>
+      <%= link_to "削除", user_task_path(@user, @task.id), method: :delete, 
+          data: { confirm: "削除してもよろしいですか？" }, class:"btn btn-danger" %>
+    </div>
+  </div>
+</div>
