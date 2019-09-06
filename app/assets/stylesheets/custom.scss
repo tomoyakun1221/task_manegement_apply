@@ -157,6 +157,24 @@ li .dropdown-header {
     border: 1px solid #ddd;
 }
 
+/* ユーザー情報更新 */
+.label-user--edit {
+  margin-top: 5px;
+}
+
+.btn-user--edit {
+  margin-top: 5px;
+}
+
+/* ユーザー新規作成 */
+.label-signup {
+  margin-top: 5px;
+}
+
+.btn-signup {
+  margin-top: 5px;
+}
+
 /* タスク詳細画面 */
 #table-task {
   table-layout: fixed;

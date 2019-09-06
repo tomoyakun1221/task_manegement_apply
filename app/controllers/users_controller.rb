@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   
   def show
+    @user = User.find(params[:id])
+  end
+  
+  def edit
+    @user = User.find(params[:id])
   end
 
   def new
@@ -15,6 +20,16 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :new
+    end
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = '更新に成功しました。'
+      redirect_to user_url @user
+    else
+      render :edit
     end
   end
   
