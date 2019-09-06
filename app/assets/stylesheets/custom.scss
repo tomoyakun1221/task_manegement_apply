@@ -176,7 +176,12 @@ li .dropdown-header {
 }
 
 /* タスク詳細画面 */
-#table-task {
+#table-tasks {
   table-layout: fixed;
   width: 100%;
+}
+
+/* 利用者一覧画面 */
+.label-user-division {
+  margin-left: 5px;
 }

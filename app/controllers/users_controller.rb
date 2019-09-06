@@ -7,6 +7,10 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+  
+  def index
+    @users = User.paginate(page: params[:page], per_page: 20)
+  end
 
   def new
     @user = User.new
@@ -31,6 +35,13 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:danger] = " ユーザーの内容を削除しました"
+    redirect_to users_path
   end
   
   private
