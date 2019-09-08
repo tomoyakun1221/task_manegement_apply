@@ -8,7 +8,7 @@ User.create!( name: "Sample User",
               
 100.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@example.com"
+  email = "sample-#{n+1}@sample.com"
   password = "password"
   User.create!(name:  name,
                email: email,
@@ -16,10 +16,10 @@ User.create!( name: "Sample User",
                password_confirmation: password)
 end
             
-@users = User.order(:created_at).take(3)
-50.times do
-  task_name = Faker::Lorem.sentence(1)
-  task_detail = Faker::Lorem.sentence(2)
-  @users.each { |user| user.tasks.create!(task_name: task_name,
-                                          task_detail: task_detail) }
+users = User.order(:created_at).take(3)
+50.times do |n|
+  task_name = "タスク#{n+1}"
+  task_detail = "タスク詳細#{n+1}"
+  users.each { |user| user.tasks.create!(task_name: task_name,
+                                         task_detail: task_detail) }
 end

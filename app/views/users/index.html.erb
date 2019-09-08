@@ -21,8 +21,10 @@
                   <td style="font-size : 17px;"><%= link_to user.name, user_path(user) %>
                   <span class="label label-success label-user-division">一般</span></td>
                 <% end %>
-                <td><%= link_to "削除", user_path(user), method: :delete,
-                        data: { confirm: "#{user.name}を削除してよろしいですか？" }, class:"btn btn-danger" %></td>
+                <% if current_user.admin? && !(current_user == user )  %>
+                  <td><%= link_to "削除", user_path(user), method: :delete,
+                      data: { confirm: "#{user.name}を削除してよろしいですか？" }, class:"btn btn-danger" %></td>
+                <% end %>
               </tr>      
             <% end %>
           </tbody>
